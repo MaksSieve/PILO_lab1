@@ -14,6 +14,32 @@ public abstract class Grammar {
 	protected ArrayList<Pair<String,String>> rules;
 	protected String startSymbol;
 	
-	public abstract String print();
+	@Override
+	public String toString(){
+		String out = "";
+		
+		out += "Terminals:";
+		for (String s: VT) {
+			out += " \"" + s + "\";";
+		}
+		out += "\n";
+		
+		out += "Non-terminals:";
+		for (String s: VN) {
+			out +=" \"" + s + "\";";
+		}
+		out += "\n";
+		
+		out += "Rules:\n";
+		for (Pair r: rules) {
+			out += r.getKey() + " := " + r.getValue() + ";\n";
+		}
+		
+		out += "Start symbol: \"" + startSymbol + "\"";
+		
+		return out;
+	}
+	
+	public abstract String parse();
 	
 }
