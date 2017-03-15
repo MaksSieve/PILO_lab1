@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Grammar">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="VT" type="Alphabet"/>
+                <xs:element name="VN" type="Alphabet"/>
+                <xs:element name="StartSymbol" type="xs:string"/>
+                <xs:element name="Matrix" type="matrix"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="matrix">
+        <xs:sequence>
+            <xs:element name="row" type="row"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Alphabet">
+        <xs:sequence>
+            <xs:element name="symbol" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="row">
+        <xs:sequence>
+            <xs:element name="address" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+

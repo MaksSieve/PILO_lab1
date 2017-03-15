@@ -9,10 +9,32 @@ import java.util.ArrayList;
  */
 public abstract class Grammar {
 	
+	//Common fields for all types of Grammar
+	
+	//Alphabet of terminals
 	protected ArrayList<String> VT;
+	
+	//Alphabet of non-terminals
 	protected ArrayList<String> VN;
+	
+	//List of rules
 	protected ArrayList<Pair<String,String>> rules;
+	
+	//Start symbol
 	protected String startSymbol;
+	
+	//Matrix which contains information about Grammar
+	protected GrammarMatrix matrix;
+	
+	
+	
+	//This will be unique for different types of Grammar
+	public abstract String parse();
+	
+	//Getters & Setters
+	public ArrayList<String> getVT() {
+		return VT;
+	}
 	
 	@Override
 	public String toString(){
@@ -40,6 +62,39 @@ public abstract class Grammar {
 		return out;
 	}
 	
-	public abstract String parse();
+	public void setVT(ArrayList<String> VT) {
+		this.VT = VT;
+	}
 	
+	public ArrayList<String> getVN() {
+		return VN;
+	}
+	
+	public void setVN(ArrayList<String> VN) {
+		this.VN = VN;
+	}
+	
+	public ArrayList<Pair<String, String>> getRules() {
+		return rules;
+	}
+	
+	public void setRules(ArrayList<Pair<String, String>> rules) {
+		this.rules = rules;
+	}
+	
+	public String getStartSymbol() {
+		return startSymbol;
+	}
+	
+	public void setStartSymbol(String startSymbol) {
+		this.startSymbol = startSymbol;
+	}
+	
+	public GrammarMatrix getMatrix() {
+		return matrix;
+	}
+	
+	public void setMatrix(GrammarMatrix matrix) {
+		this.matrix = matrix;
+	}
 }
