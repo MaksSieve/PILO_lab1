@@ -24,7 +24,7 @@ public abstract class Grammar {
 	protected String startSymbol;
 	
 	//Matrix which contains information about Grammar
-	protected GrammarMatrix matrix;
+	protected ArrayList<ArrayList<String>> matrix;
 	
 	
 	
@@ -90,11 +90,11 @@ public abstract class Grammar {
 		this.startSymbol = startSymbol;
 	}
 	
-	public GrammarMatrix getMatrix() {
+	public ArrayList<ArrayList<String>> getMatrix() {
 		return matrix;
 	}
 	
-	public void setMatrix(GrammarMatrix matrix) {
+	public void setMatrix(ArrayList<ArrayList<String>> matrix) {
 		this.matrix = matrix;
 	}
 }

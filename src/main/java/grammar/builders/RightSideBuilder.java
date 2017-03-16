@@ -1,7 +1,6 @@
 package grammar.builders;
 
 import grammar.Grammar;
-import grammar.GrammarMatrix;
 
 import java.io.File;
 
