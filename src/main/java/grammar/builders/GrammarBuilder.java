@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public abstract class GrammarBuilder {
 	
-	public Parsable buildFromXML(File file) {
+	public Grammar buildFromXML(File file) {
 		
 		Grammar grammar = new ContextFreeGrammar();
 		Document XMLdoc = makeDocument(file);
@@ -88,6 +88,6 @@ public abstract class GrammarBuilder {
 		return outList;
 	}
 	
-	abstract ArrayList<Pair<String,String>> buildRules(Grammar grammar);
+	abstract ArrayList<Pair<String,ArrayList<String>>> buildRules(Grammar grammar);
 	
 }

@@ -1,7 +1,8 @@
+import grammar.Grammar;
 import grammar.Parsable;
 import grammar.builders.GrammarBuilder;
-import grammar.builders.LeftSideBuilder;
-import grammar.builders.RightSideBuilder;
+import grammar.builders.LeftSideGrammarBuilder;
+import grammar.builders.RightSideGrammarBuilder;
 
 import java.io.File;
 
@@ -11,11 +12,11 @@ import java.io.File;
 public class Main {
 	
 	public static void main(String[] args) {
-		GrammarBuilder rBuilder = new RightSideBuilder();
-		GrammarBuilder lBuilder = new LeftSideBuilder();
+		GrammarBuilder rBuilder = new RightSideGrammarBuilder();
+		GrammarBuilder lBuilder = new LeftSideGrammarBuilder();
 		
-		Parsable rGrammar = rBuilder.buildFromXML(new File("src/main/java/task1.xml"));
-		Parsable lGrammar = lBuilder.buildFromXML(new File("src/main/java/task1.xml"));
+		Grammar rGrammar = rBuilder.buildFromXML(new File("src/main/java/task1.xml"));
+		Grammar lGrammar = lBuilder.buildFromXML(new File("src/main/java/task1.xml"));
 		
 		System.out.println("RightSideGrammar:\n" + rGrammar.toString());
 		System.out.println();

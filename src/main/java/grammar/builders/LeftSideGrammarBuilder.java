@@ -1,20 +1,17 @@
 package grammar.builders;
 
 import grammar.Grammar;
-import grammar.Parsable;
 
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 
-/**
- * Created by Максим on 11.03.2017.
- */
-public class LeftSideBuilder extends GrammarBuilder {
+public class LeftSideGrammarBuilder extends GrammarBuilder {
 	
 	@Override
-	public ArrayList<Pair<String, String>> buildRules(Grammar grammar) {
-		ArrayList<Pair<String, String>> rules = new ArrayList<Pair<String, String>>();
+	public ArrayList<Pair<String, ArrayList<String>>> buildRules(Grammar grammar) {
+		grammar.setType(Grammar.Type.left);
+		ArrayList<Pair<String, ArrayList<String>>> rules = new ArrayList<Pair<String, ArrayList<String>>>();
 		ArrayList<ArrayList<String>> matrix = grammar.getMatrix();
 		
 		for (ArrayList<String> row: matrix){
@@ -28,16 +25,8 @@ public class LeftSideBuilder extends GrammarBuilder {
 					}
 				}
 			}
-			String rightSide;
-			if (temp.size() == 0 ){
-				rightSide = "e";
-			}else {
-				rightSide = temp.get(0);
-				for (int i = 1; i < temp.size(); i++) {
-					rightSide += "|" + temp.get(i);
-				}
-			}
-			rules.add(new Pair<String, String>(leftSide, rightSide));
+
+			rules.add(new Pair<String, ArrayList<String>>(leftSide, temp));
 		}
 		
 		return rules;

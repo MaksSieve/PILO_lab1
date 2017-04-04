@@ -8,7 +8,13 @@ import java.util.ArrayList;
  * Created by Максим on 04.04.2017.
  */
 public abstract class Grammar implements Parsable {
-	
+
+	public enum Type {
+		right,
+		left
+	}
+
+	protected Type type;
 	//Common fields for all types of Parsable
 	//Alphabet of terminals
 	protected ArrayList<String> VT;
@@ -17,14 +23,37 @@ public abstract class Grammar implements Parsable {
 	protected ArrayList<String> VN;
 	
 	//List of rules
-	protected ArrayList<Pair<String,String>> rules;
+	protected ArrayList<Pair<String, ArrayList<String>>> rules;
 	
 	//Start symbol
 	protected String startSymbol;
 	
 	//Matrix which contains information about Grammar
 	protected ArrayList<ArrayList<String>> matrix;
-	
+
+	private String rightSideToString(ArrayList<String> rs){
+		String rightSide = "";
+		switch(type){
+			case right:{
+				rightSide = rs.get(0);
+				for (int i = 1; i < rs.size(); i++){
+					rightSide += "|"+rs.get(i);
+				}
+			};
+			case left:{
+				if (rs.size() == 0 ){
+					rightSide = "e";
+				}else {
+					rightSide = rs.get(0);
+					for (int i = 1; i < rs.size(); i++) {
+						rightSide += "|" + rs.get(i);
+					}
+				}
+			};
+		}
+		return rightSide;
+	}
+
 	@Override
 	public String toString(){
 		String out = "";
@@ -43,15 +72,15 @@ public abstract class Grammar implements Parsable {
 		
 		out += "Rules:\n";
 		for (Pair r: rules) {
-			out += r.getKey() + " := " + r.getValue() + ";\n";
+			out += r.getKey() + " := " + rightSideToString((ArrayList<String>)r.getValue()) + ";\n";
 		}
 		
 		out += "Start symbol: \"" + startSymbol + "\"";
 		
 		return out;
 	}
-	
-	//Getters & Setters
+
+	//auto-generated Getters and Setters
 	public ArrayList<String> getVT() {
 		return VT;
 	}
@@ -68,11 +97,11 @@ public abstract class Grammar implements Parsable {
 		this.VN = VN;
 	}
 	
-	public ArrayList<Pair<String, String>> getRules() {
+	public ArrayList<Pair<String, ArrayList<String>>> getRules() {
 		return rules;
 	}
 	
-	public void setRules(ArrayList<Pair<String, String>> rules) {
+	public void setRules(ArrayList<Pair<String, ArrayList<String>>> rules) {
 		this.rules = rules;
 	}
 	
@@ -91,5 +120,12 @@ public abstract class Grammar implements Parsable {
 	public void setMatrix(ArrayList<ArrayList<String>> matrix) {
 		this.matrix = matrix;
 	}
-	
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
 }
