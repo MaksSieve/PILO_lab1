@@ -15,6 +15,19 @@ public class StateMachine {
 
     private String startState;
 
+    @Override
+    public String toString(){
+        String out = "";
+        out += "Alpabet: " + alphabet + "\n";
+        out += "End-states: " + finishStates + "\n";
+        out += "States:\n";
+        for (State st : states){
+            out += st.toString();
+        }
+        return out;
+    }
+
+
 
     public State getStateByName(String name){
         State state = null;
@@ -26,7 +39,6 @@ public class StateMachine {
         }
         return state;
     }
-
 
     //auto-generated Getters and Setters
     public ArrayList<State> getStates() {

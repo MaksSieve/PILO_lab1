@@ -3,6 +3,8 @@ import grammar.Parsable;
 import grammar.builders.GrammarBuilder;
 import grammar.builders.LeftSideGrammarBuilder;
 import grammar.builders.RightSideGrammarBuilder;
+import grammar.builders.StateMachineBuilder;
+import grammar.statemachine.StateMachine;
 
 import java.io.File;
 
@@ -19,9 +21,9 @@ public class Main {
 		Grammar lGrammar = lBuilder.buildFromXML(new File("src/main/java/task1.xml"));
 		
 		System.out.println("RightSideGrammar:\n" + rGrammar.toString());
-		System.out.println();
-		System.out.println("LeftSideGrammar:\n" + lGrammar.toString());
-		
+
+		StateMachine machine = new StateMachineBuilder().build(rGrammar);
+		System.out.println(machine.toString());
 		
 	}
 	
