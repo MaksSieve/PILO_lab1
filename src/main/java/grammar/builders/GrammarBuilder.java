@@ -1,6 +1,8 @@
 package grammar.builders;
 
+import grammar.ContextFreeGrammar;
 import grammar.Grammar;
+import grammar.Parsable;
 import javafx.util.Pair;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -14,16 +16,16 @@ import java.util.ArrayList;
 
 public abstract class GrammarBuilder {
 	
-	public Grammar buildFromXML(File file) {
+	public Parsable buildFromXML(File file) {
 		
-		ContextFreeGrammar grammar = new ContextFreeGrammar();
+		Grammar grammar = new ContextFreeGrammar();
 		Document XMLdoc = makeDocument(file);
 		
 		try {
 			Element root = XMLdoc.getDocumentElement();
 			NodeList parts = root.getChildNodes();
 		
-			//construct a Grammar object
+			//construct a Parsable object
 			for (int i = 0; i < parts.getLength(); i++){
 				Node el = parts.item(i);
 				if (el.getNodeName().equals("VT")){

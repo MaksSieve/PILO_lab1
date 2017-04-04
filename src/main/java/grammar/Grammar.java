@@ -5,12 +5,11 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 
 /**
- * Created by Максим on 11.03.2017.
+ * Created by Максим on 04.04.2017.
  */
-public class Grammar {
+public abstract class Grammar implements Parsable {
 	
-	//Common fields for all types of Grammar
-	
+	//Common fields for all types of Parsable
 	//Alphabet of terminals
 	protected ArrayList<String> VT;
 	
@@ -52,9 +51,6 @@ public class Grammar {
 		return out;
 	}
 	
-	//This will be unique for different types of Grammar
-	public String parse(){return null;};
-	
 	//Getters & Setters
 	public ArrayList<String> getVT() {
 		return VT;
@@ -95,4 +91,5 @@ public class Grammar {
 	public void setMatrix(ArrayList<ArrayList<String>> matrix) {
 		this.matrix = matrix;
 	}
+	
 }

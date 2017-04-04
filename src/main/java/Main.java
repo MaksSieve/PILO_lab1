@@ -1,4 +1,4 @@
-import grammar.Grammar;
+import grammar.Parsable;
 import grammar.builders.GrammarBuilder;
 import grammar.builders.LeftSideBuilder;
 import grammar.builders.RightSideBuilder;
@@ -14,8 +14,8 @@ public class Main {
 		GrammarBuilder rBuilder = new RightSideBuilder();
 		GrammarBuilder lBuilder = new LeftSideBuilder();
 		
-		Grammar rGrammar = rBuilder.buildFromXML(new File("src/main/java/Grammar.xml"));
-		Grammar lGrammar = lBuilder.buildFromXML(new File("src/main/java/Grammar.xml"));
+		Parsable rGrammar = rBuilder.buildFromXML(new File("src/main/java/Grammar.xml"));
+		Parsable lGrammar = lBuilder.buildFromXML(new File("src/main/java/Grammar.xml"));
 		
 		System.out.println("RightSideGrammar:\n" + rGrammar.toString());
 		System.out.println();

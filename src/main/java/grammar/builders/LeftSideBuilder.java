@@ -1,6 +1,7 @@
 package grammar.builders;
 
 import grammar.Grammar;
+import grammar.Parsable;
 
 import javafx.util.Pair;
 
