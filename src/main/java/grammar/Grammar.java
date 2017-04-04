@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by Максим on 11.03.2017.
  */
-public abstract class Grammar {
+public class Grammar {
 	
 	//Common fields for all types of Grammar
 	
@@ -25,16 +25,6 @@ public abstract class Grammar {
 	
 	//Matrix which contains information about Grammar
 	protected ArrayList<ArrayList<String>> matrix;
-	
-	
-	
-	//This will be unique for different types of Grammar
-	public abstract String parse();
-	
-	//Getters & Setters
-	public ArrayList<String> getVT() {
-		return VT;
-	}
 	
 	@Override
 	public String toString(){
@@ -60,6 +50,14 @@ public abstract class Grammar {
 		out += "Start symbol: \"" + startSymbol + "\"";
 		
 		return out;
+	}
+	
+	//This will be unique for different types of Grammar
+	public String parse(){return null;};
+	
+	//Getters & Setters
+	public ArrayList<String> getVT() {
+		return VT;
 	}
 	
 	public void setVT(ArrayList<String> VT) {

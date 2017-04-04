@@ -1,85 +1,45 @@
 package grammar.builders;
 
-import grammar.ContextFreeGrammar;
 import grammar.Grammar;
 
-import org.w3c.dom.*;
+import javafx.util.Pair;
 
-import javax.xml.parsers.*;
-
-import java.io.File;
 import java.util.ArrayList;
 
 /**
  * Created by Максим on 11.03.2017.
  */
-public class LeftSideBuilder implements GrammarBuilder {
+public class LeftSideBuilder extends GrammarBuilder {
 	
-	public Grammar buildFromXML(File file) {
+	@Override
+	public ArrayList<Pair<String, String>> buildRules(Grammar grammar) {
+		ArrayList<Pair<String, String>> rules = new ArrayList<Pair<String, String>>();
+		ArrayList<ArrayList<String>> matrix = grammar.getMatrix();
 		
-		ContextFreeGrammar grammar = new ContextFreeGrammar();
-		Document XMLdoc = makeDocument(file);
-		
-		Element root = XMLdoc.getDocumentElement();
-		NodeList parts = root.getChildNodes();
-		
-		//construct a Grammar object
-		try {
-			for (int i = 0; i < parts.getLength(); i++){
-				Node el = parts.item(i);
-				if (el.getNodeName().equals("VT")){
-					grammar.setVT(makeArray(el));
-				}else if (el.getNodeName().equals("VN")){
-					grammar.setVN(makeArray(el));
-				}else if(el.getNodeName().equals("matrix")){
-					grammar.setMatrix(makeMatrix(el));
-				}
-				
-			}
+		for (ArrayList<String> row: matrix){
+			String leftSide = grammar.getVN().get(matrix.indexOf(row));
+			ArrayList<String> temp = new ArrayList<String>();
 			
-			return grammar;
-		} catch (Exception e) {
-			e.printStackTrace();
+			for (ArrayList<String> row2 : matrix){
+				for (String el : row2){
+					if (el.equals(leftSide)){
+						temp.add(grammar.getVN().get(matrix.indexOf(row2)) + row2.indexOf(el));
+					}
+				}
+			}
+			String rightSide;
+			if (temp.size() == 0 ){
+				rightSide = "e";
+			}else {
+				rightSide = temp.get(0);
+				for (int i = 1; i < temp.size(); i++) {
+					rightSide += "|" + temp.get(i);
+				}
+			}
+			rules.add(new Pair<String, String>(leftSide, rightSide));
 		}
 		
-		return null;
+		return rules;
 	}
 	
-	//make a Document object for main method
-	private Document makeDocument(File file){
-		
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder XMLbuilder = null;
-		Document doc = null;
-		
-		try {
-			XMLbuilder = factory.newDocumentBuilder();
-			doc = XMLbuilder.parse(file);
-			return doc;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
-	
-	private ArrayList<String> makeArray(Node el){
-		NodeList list = el.getChildNodes();
-		ArrayList<String> outList = new ArrayList<String>();
-		for (int j = 0; j < list.getLength(); j++) {
-			outList.add(list.item(j).getNodeValue());
-		}
-		return outList;
-	}
-	
-	private ArrayList<ArrayList<String>> makeMatrix(Node el){
-		NodeList rows = el.getChildNodes();
-		ArrayList<ArrayList<String>> outList = new ArrayList<ArrayList<String>>();
-		
-		for (int i = 0; i < rows.getLength(); i++) {
-			Node row = rows.item(i);
-			outList.add(makeArray(row));
-		}
-		return outList;
-	}
 }
