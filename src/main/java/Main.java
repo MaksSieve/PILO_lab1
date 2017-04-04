@@ -14,12 +14,14 @@ public class Main {
 		GrammarBuilder rBuilder = new RightSideBuilder();
 		GrammarBuilder lBuilder = new LeftSideBuilder();
 		
-		Parsable rGrammar = rBuilder.buildFromXML(new File("src/main/java/Grammar.xml"));
-		Parsable lGrammar = lBuilder.buildFromXML(new File("src/main/java/Grammar.xml"));
+		Parsable rGrammar = rBuilder.buildFromXML(new File("src/main/java/task1.xml"));
+		Parsable lGrammar = lBuilder.buildFromXML(new File("src/main/java/task1.xml"));
 		
 		System.out.println("RightSideGrammar:\n" + rGrammar.toString());
 		System.out.println();
 		System.out.println("LeftSideGrammar:\n" + lGrammar.toString());
+		
+		
 	}
 	
 }
