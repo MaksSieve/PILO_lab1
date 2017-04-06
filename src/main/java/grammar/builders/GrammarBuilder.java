@@ -36,7 +36,7 @@ public abstract class GrammarBuilder {
 					grammar.setMatrix(makeMatrix(el));
 					grammar.setRules(buildRules(grammar));
 				}else if(el.getNodeName().equals("StartSymbol")) {
-					grammar.setStartSymbol(el.getTextContent());
+					grammar.setStartSymbol(el.getAttributes().getNamedItem("value").getNodeValue());
 				}
 			}
 			return grammar;
@@ -69,7 +69,7 @@ public abstract class GrammarBuilder {
 		ArrayList<String> outList = new ArrayList<String>();
 		for (int j = 0; j < list.getLength(); j++) {
 			if (list.item(j).getNodeName().equals("symbol"))
-				outList.add(list.item(j).getTextContent());
+				outList.add(list.item(j).getAttributes().getNamedItem("value").getNodeValue());
 		}
 		return outList;
 	}

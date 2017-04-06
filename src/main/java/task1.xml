@@ -1,47 +1,47 @@
 <Grammar>
-  <VT>
-    <symbol>0</symbol>
-      <symbol>1</symbol>
+    <VT>
+        <symbol value = "1"/>
+        <symbol value = "0"/>
   </VT>
   <VN>
-    <symbol>A</symbol>
-    <symbol>B</symbol>
-      <symbol>B'</symbol>
-    <symbol>C'</symbol>
-      <symbol>C</symbol>
-    <symbol>D</symbol>
+      <symbol value = "A"/>
+      <symbol value = "B"/>
+      <symbol value = "B'"/>
+      <symbol value = "C'"/>
+      <symbol value = "C"/>
+      <symbol value = "D"/>
   </VN>
-  <StartSymbol>A</StartSymbol>
+  <StartSymbol value="A"/>
   <Matrix>
       <row>
-          <symbol>B</symbol>
-          <symbol>C'</symbol>
-          <symbol></symbol>
+          <symbol value = "B"/>
+          <symbol value = "C'"/>
+          <symbol value = ""/>
       </row>
       <row>
-          <symbol></symbol>
-          <symbol>B'</symbol>
-          <symbol></symbol>
+          <symbol value = ""/>
+          <symbol value = "B'"/>
+          <symbol value = ""/>
       </row>
       <row>
-          <symbol></symbol>
-          <symbol>D</symbol>
-          <symbol></symbol>
+          <symbol value = ""/>
+          <symbol value = "D"/>
+          <symbol value = ""/>
       </row>
       <row>
-          <symbol>C</symbol>
-          <symbol></symbol>
-          <symbol></symbol>
+          <symbol value = "C"/>
+          <symbol value = ""/>
+          <symbol value = ""/>
       </row>
       <row>
-          <symbol>C</symbol>
-          <symbol></symbol>
-          <symbol>1</symbol>
+          <symbol value = "C"/>
+          <symbol value = "'"/>
+          <symbol value = "1"/>
       </row>
       <row>
-          <symbol></symbol>
-          <symbol></symbol>
-          <symbol>1</symbol>
+          <symbol value = ""/>
+          <symbol value = ""/>
+          <symbol value = "1"/>
       </row>
   </Matrix>
 </Grammar>

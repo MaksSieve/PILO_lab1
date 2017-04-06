@@ -1,0 +1,45 @@
+<Grammar>
+    <VT>
+        <symbol value = "/"/>
+        <symbol value = "\n"/>
+        <symbol value = "{"/>
+        <symbol value = "}"/>
+    </VT>
+    <VN>
+        <symbol value = "S"/>
+        <symbol value = "A"/>
+        <symbol value = "B"/>
+        <symbol value = "C"/>
+    </VN>
+    <StartSymbol>S</StartSymbol>
+    <Matrix>
+        <row>
+            <symbol value = "A"/>
+            <symbol value = ""/>
+            <symbol value = "C"/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+        </row>
+        <row>
+            <symbol value = "B"/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+        </row>
+        <row>
+            <symbol value = ""/>
+            <symbol value = "1"/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+        </row>
+        <row>
+            <symbol value = ""/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+            <symbol value = "1"/>
+            <symbol value = ""/>
+        </row>
+    </Matrix>
+</Grammar>

@@ -1,12 +1,10 @@
 import grammar.Grammar;
-import grammar.Parsable;
 import grammar.builders.GrammarBuilder;
 import grammar.builders.LeftSideGrammarBuilder;
 import grammar.builders.RightSideGrammarBuilder;
-import grammar.builders.StateMachineBuilder;
-import grammar.statemachine.StateMachine;
 
 import java.io.File;
+import java.util.Scanner;
 
 /**
  * Created by Максим on 11.03.2017.
@@ -21,10 +19,17 @@ public class Main {
 		Grammar lGrammar = lBuilder.buildFromXML(new File("src/main/java/task1.xml"));
 		
 		System.out.println("RightSideGrammar:\n" + rGrammar.toString());
+		System.out.println("LeftSideGrammar:\n" + lGrammar.toString());
 
-		StateMachine machine = new StateMachineBuilder().build(rGrammar);
-		System.out.println(machine.toString());
-		
+		Scanner scan = new Scanner(System.in);
+
+		System.out.print("Print string to parse: ");
+
+		try {
+			System.out.println("Result: " + rGrammar.parse(scan.next()));
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 }

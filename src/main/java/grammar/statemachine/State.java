@@ -22,17 +22,26 @@ public class State {
         return out;
     }
 
-    public State getAddress(String symbol) {
+    public State getAddressBySymbol(String symbol) {
 
         State out = null;
 
         for (Pair p : jumps){
-            if (p.getKey() == symbol) {
+            if (p.getKey().equals(symbol)) {
                 out = (State)p.getValue();
             }
         }
 
         return out;
+    }
+
+    public boolean isSymbolInJumps(String symb){
+        boolean res = false;
+        for (Pair<String, State> jump : jumps){
+            if (res = jump.getKey().equals(symb)) break;
+        }
+
+        return res;
     }
 
     //auto-generated Getters and Setters

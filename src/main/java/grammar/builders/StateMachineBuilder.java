@@ -41,6 +41,9 @@ public class StateMachineBuilder {
             st.setJumps(tbl_temp);
         }
 
+        sm.setStartState(sm.getStateByName(grammar.getStartSymbol()));
+        sm.setFinishStates(endStates);
+
         return sm;
     }
 }

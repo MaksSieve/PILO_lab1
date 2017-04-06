@@ -2,18 +2,21 @@ package grammar.statemachine;
 
 import java.util.ArrayList;
 
-/**
- * Created by MSitnikov on 04.04.2017.
- */
 public class StateMachine {
 
     private ArrayList<State> states;
 
     private ArrayList<String> alphabet;
 
-    private ArrayList<String> finishStates;
+    private ArrayList<State> finishStates;
 
-    private String startState;
+    private State startState;
+
+
+    public StateMachine determine(){
+        return null;
+    };
+
 
     @Override
     public String toString(){
@@ -26,7 +29,6 @@ public class StateMachine {
         }
         return out;
     }
-
 
 
     public State getStateByName(String name){
@@ -57,19 +59,20 @@ public class StateMachine {
         this.alphabet = alphabet;
     }
 
-    public ArrayList<String> getFinishStates() {
+    public ArrayList<State> getFinishStates() {
         return finishStates;
     }
 
-    public void setFinishStates(ArrayList<String> finishStates) {
+    public void setFinishStates(ArrayList<State> finishStates) {
         this.finishStates = finishStates;
     }
 
-    public String getStartState() {
+    public State getStartState() {
         return startState;
     }
 
-    public void setStartState(String startState) {
+    public void setStartState(State startState) {
         this.startState = startState;
     }
+
 }
