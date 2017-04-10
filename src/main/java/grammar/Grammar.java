@@ -15,7 +15,7 @@ public abstract class Grammar implements Parsable {
 	}
 
 	protected Type type;
-	//Common fields for all types of Parsable
+	//Common fields for all types of Grammar
 	//Alphabet of terminals
 	protected ArrayList<String> VT;
 	

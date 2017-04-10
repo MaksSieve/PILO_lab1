@@ -6,6 +6,6 @@ package grammar;
 public interface Parsable {
 	
 	//This will be unique for different types of Parsable
-	String parse(String in) throws Exception;
+	String parse(String in);
 	
 }
