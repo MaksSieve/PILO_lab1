@@ -1,7 +1,7 @@
 <Grammar>
     <VT>
         <symbol value = "/"/>
-        <symbol value = "\n"/>
+        <symbol value = '\n'/>
         <symbol value = "{"/>
         <symbol value = "}"/>
     </VT>
@@ -10,8 +10,9 @@
         <symbol value = "A"/>
         <symbol value = "B"/>
         <symbol value = "C"/>
+        <symbol value = "D"/>
     </VN>
-    <StartSymbol>S</StartSymbol>
+    <StartSymbol value="S"/>
     <Matrix>
         <row>
             <symbol value = "A"/>
@@ -29,7 +30,7 @@
         </row>
         <row>
             <symbol value = ""/>
-            <symbol value = "1"/>
+            <symbol value = "D"/>
             <symbol value = ""/>
             <symbol value = ""/>
             <symbol value = ""/>
@@ -38,8 +39,15 @@
             <symbol value = ""/>
             <symbol value = ""/>
             <symbol value = ""/>
-            <symbol value = "1"/>
+            <symbol value = "D"/>
             <symbol value = ""/>
+        </row>
+        <row>
+            <symbol value = ""/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+            <symbol value = ""/>
+            <symbol value = "1"/>
         </row>
     </Matrix>
 </Grammar>

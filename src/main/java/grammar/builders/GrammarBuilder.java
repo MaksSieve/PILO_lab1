@@ -2,7 +2,6 @@ package grammar.builders;
 
 import grammar.ContextFreeGrammar;
 import grammar.Grammar;
-import grammar.Parsable;
 import javafx.util.Pair;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

@@ -4,6 +4,11 @@ import grammar.builders.LeftSideGrammarBuilder;
 import grammar.builders.RightSideGrammarBuilder;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -23,11 +28,18 @@ public class Main {
 
 
 		//Task3
-		rGrammar = rBuilder.buildFromXML(new File("src/main/java/task3.xml"));
-		Scanner scan = new Scanner(System.in);
-		System.out.print("Print string to parse: ");
-		System.out.println("Result: " + rGrammar.parse(scan.next()));
-
+		Grammar task3 = rBuilder.buildFromXML(new File("src/main/java/task3.xml"));
+		try {
+			System.out.println("Result: " + task3.parse(readFile("src/main/java/test3.txt", Charset.defaultCharset())));
+		}catch (Exception e){
+			
+		}
+	}
+	
+	static String readFile(String path, Charset encoding) throws IOException
+	{
+		byte[] encoded = Files.readAllBytes(Paths.get(path));
+		return new String(encoded, encoding);
 	}
 	
 }
